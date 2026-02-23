@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  onNavigate: (section: 'home' | 'quiz' | 'timeline') => void;
+  onNavigate: (section: 'home' | 'gallery' | 'timeline' | 'quiz' | 'wishes') => void;
   activeSection: string;
 }
 
@@ -20,11 +20,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => {
 
   const navLinks = [
     { name: 'Home', id: 'home' as const },
-    { name: 'Gallery', id: 'timeline' as const },
+    { name: 'Gallery', id: 'gallery' as const },
+    { name: 'Timeline', id: 'timeline' as const },
     { name: 'Quiz', id: 'quiz' as const },
+    { name: 'Wishes', id: 'wishes' as const },
   ];
 
-  const handleNavClick = (id: 'home' | 'quiz' | 'timeline') => {
+  const handleNavClick = (id: 'home' | 'gallery' | 'timeline' | 'quiz' | 'wishes') => {
     onNavigate(id);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
